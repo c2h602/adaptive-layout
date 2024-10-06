@@ -1,0 +1,108 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr; 
+    gap: 20px;
+    max-height: 100vh;
+}
+
+.yellow {
+    border: 2px solid rgb(241, 241, 70);
+    height: 100%;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.yellow:hover {
+    background-color: rgb(241, 241, 70);
+    filter: drop-shadow(0 0 10px yellow);
+}
+
+.red {
+    border: 2px solid rgb(245, 72, 72);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.red:hover {
+    background-color: rgb(245, 72, 72);
+    filter: drop-shadow(0 0 10px red);
+}
+
+.green {
+    display: flex;
+    justify-content: space-between;
+    border: transparent;
+}
+
+.green__item {
+    flex-basis: 30%;
+    border: 2px solid rgb(95, 211, 95);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.green__item:hover {
+    background-color: rgb(95, 211, 95);
+    filter: drop-shadow(0 0 10px rgb(83, 189, 83));
+}
+
+.pink {
+    border: 2px solid pink;
+    overflow: hidden;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.pink:hover {
+    background-color: pink;
+    color: white;
+    filter: drop-shadow(0 0 10px pink);
+}
+
+.pink p {
+    padding: 10px;
+}
+
+.yellow, 
+.red, 
+.pink, 
+.green__item {
+    min-height: 100px;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+            "rd rd rd rd yel yel"
+            "gr pk pk pk yel yel";
+
+        max-height: 100vh;    
+    }
+
+    .yellow {
+        grid-area: yel;
+
+    }
+
+    .red {
+        grid-area: rd;
+    }
+
+    .green {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        grid-area: gr;
+    }
+
+    .pink {
+        grid-area: pk;
+    }
+
+    .yellow,
+    .red,
+    .green,
+    .pink {
+        height: 100%;
+    }
+}
